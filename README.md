@@ -121,16 +121,6 @@ Then open: `http://localhost:3000`
 
 ---
 
-## 📸 Screenshots
-
-_You can add screenshots here such as:_
-
-- Applicant Dashboard
-- Resume Upload Modal
-- Employer Verification Request
-- Institution Verification Panel
-
----
 
 ## 📄 License
 
@@ -140,5 +130,5 @@ This project is licensed under the **MIT License**.
 
 ## 🙋‍♂️ Author
 
-**Shwetank Singh**  
+**Shwetank Singh**  | **Uday Biradar**
 📫 [GitHub Profile](https://github.com/Shwetankkk)
