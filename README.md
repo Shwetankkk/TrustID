@@ -9,7 +9,7 @@ TrustID is a decentralized application (DApp) built to revolutionize how digital
 - ✅ Register as **Applicant**, **Employer**, or **Institution**
 - 📄 Applicants can upload resumes securely to **IPFS via Pinata**
 - 🧑‍💼 Employers can view resumes and request verification from institutions
-- 🏫 Institutions can approve or reject verification requests
+- 🏫 Institutions approve verification requests
 - 🔗 Verification statuses are updated both **on-chain (Ethereum)** and **off-chain (MongoDB)**
 - 🔒 Secured via cryptographic hashing and smart contracts
 - 🎛️ Role-based access and Metamask login for all users
@@ -47,7 +47,7 @@ DigitalIdentityVerification_DApp/
 
 1. **Applicant** registers and uploads a resume. It's stored on IPFS and linked to a minted NFT on the blockchain.
 2. **Employer** browses registered applicants and requests verification from a specific institution.
-3. **Institution** logs in and verifies or rejects the request.
+3. **Institution** logs in and verifies the request.
 4. The verification status updates on-chain for transparency and off-chain in MongoDB for efficiency.
 
 ---
