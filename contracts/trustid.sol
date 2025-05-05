@@ -4,7 +4,7 @@ pragma solidity ^0.4.25;
 import "openzeppelin-solidity/contracts/token/ERC721/ERC721Token.sol";
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
-contract DigitalIdentityVerification is ERC721Token, Ownable {
+contract TrustID is ERC721Token, Ownable {
     struct Resume {
         string applicantName;
         string resumeHash;
@@ -37,7 +37,7 @@ contract DigitalIdentityVerification is ERC721Token, Ownable {
     event InstitutionApprovalUpdated(uint256 tokenId, address institution);
     event EmployerApprovalUpdated(uint256 tokenId, address employer);
 
-    function DigitalIdentityVerification() public ERC721Token("Digital Identity Verification NFT", "DIVNFT") {
+    function TrustID() public ERC721Token("Digital Identity Verification NFT", "DIVNFT") {
         tokenCounter = 0;
     }
 

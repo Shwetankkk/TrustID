@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "frontend": "npm start --prefix digitalidentity-verification-dapp",
+    "frontend": "npm start --prefix trustid-dapp",
     "backend": "node my-app-backend/server.js",
     "dev": "concurrently \"npm run frontend\" \"npm run backend\""
   },

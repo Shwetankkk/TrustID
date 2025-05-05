@@ -1,14 +1,14 @@
 const fs = require('fs');
 const path = require('path');
-const DigitalIdentityVerification = artifacts.require(
-  'DigitalIdentityVerification',
+const TrustID = artifacts.require(
+  'TrustID',
 );
-const IdentityVerification = require('../build/contracts/DigitalIdentityVerification.json');
+const IdentityVerification = require('../build/contracts/TrustID.json');
 
 module.exports = async function (deployer) {
-  await deployer.deploy(DigitalIdentityVerification, { gas: 6500000 });
+  await deployer.deploy(TrustID, { gas: 6500000 });
 
-  const deployedAddress = DigitalIdentityVerification.address;
+  const deployedAddress = TrustID.address;
   const abi = IdentityVerification.abi;
 
   // Structure the contract data
@@ -22,7 +22,7 @@ module.exports = async function (deployer) {
   // Paths for frontend and backend contract.json
   const frontendContractPath = path.resolve(
     __dirname,
-    '../digitalidentity-verification-dapp/src/contracts/contract.json',
+    '../trustid-dapp/src/contracts/contract.json',
   );
 
   const backendContractPath = path.resolve(

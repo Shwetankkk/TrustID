@@ -123,7 +123,8 @@ Then open: `http://localhost:3000`
 
 ## 📸 Screenshots
 
-*You can add screenshots here such as:*
+_You can add screenshots here such as:_
+
 - Applicant Dashboard
 - Resume Upload Modal
 - Employer Verification Request

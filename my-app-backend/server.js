@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const cors = require('cors');
 const Web3 = require('web3').default;
-const IdentityVerification = require('../build/contracts/DigitalIdentityVerification.json');
+const IdentityVerification = require('../build/contracts/TrustID.json');
 const contractData = require('./contract.json');
 
 const app = express();
