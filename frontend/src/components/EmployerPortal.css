@@ -1,173 +1,626 @@
-/* Employer Portal Container */
-.employer-portal {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-family: 'Roboto', sans-serif;
-  color: #333;
+/* Modern Employer Portal Styles */
+
+/* Base Variables */
+:root {
+  --primary: #4f46e5;
+  --primary-light: #ede9fe;
+  --primary-dark: #4338ca;
+  --success: #10b981;
+  --success-light: #d1fae5;
+  --warning: #f59e0b;
+  --warning-light: #fef3c7;
+  --danger: #ef4444;
+  --danger-light: #fee2e2;
+  --dark: #111827;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-/* Logout Button */
-.logout-container {
+/* Base Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #f5f7fa;
+  color: var(--gray-700);
+  line-height: 1.5;
+}
+
+/* Main Portal Wrapper */
+.portal-wrapper {
+  min-height: 100vh;
   display: flex;
-  justify-content: flex-end; /* Align to the right */
-  position: absolute;
-  right: 9%;
-  padding: 1rem;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f0f4ff, #e3eeff);
 }
 
-.logout-button {
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  width: 100px;
-  padding: 0.4rem 0.8rem;
-  cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: bold;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease, transform 0.2s ease;
+/* Loading State */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: var(--gray-600);
 }
 
-.logout-button:hover {
-  background-color: #e63939;
-  transform: translateY(-2px);
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(79, 70, 229, 0.2);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
 }
 
-.logout-button:focus {
-  outline: none;
+.spinner.small {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+  margin: 0;
 }
 
-/* Headings */
-.employer-portal h2 {
-  font-size: 2rem;
-  color: #2c3e50;
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Not Registered State */
+.not-registered {
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  padding: 3rem;
+  max-width: 500px;
+  margin: 4rem auto;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.not-registered svg {
+  color: var(--gray-400);
   margin-bottom: 1.5rem;
 }
 
-.employer-portal h3 {
+.not-registered h2 {
   font-size: 1.5rem;
-  color: #34495e;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #3498db;
-  padding-bottom: 0.5rem;
+  color: var(--gray-800);
+  margin-bottom: 0.75rem;
 }
 
-.employer-portal h4 {
-  font-size: 1.2rem;
-  color: #2c3e50;
-  margin: 1rem 0 0.5rem;
+.not-registered p {
+  color: var(--gray-500);
+  margin-bottom: 2rem;
 }
 
-/* List of Resumes */
-.employer-portal ul {
-  list-style: none;
-  padding: 0;
+/* Employer Portal Container */
+.employer-portal {
+  width: 100%;
+  max-width: 1200px;
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
 }
 
-.employer-portal li {
-  padding: 1rem;
-  margin-bottom: 1rem;
-  background: #f9f9f9;
+/* Portal Header */
+.portal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.portal-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.portal-title h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0;
+}
+
+.portal-subtitle {
+  font-size: 0.875rem;
+  color: var(--gray-500);
+  margin-top: 0.25rem;
+}
+
+.logout-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--danger-light);
+  color: var(--danger);
+  border: none;
   border-radius: 8px;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.employer-portal li:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+.logout-button:hover {
+  background-color: var(--danger);
+  color: var(--white);
+}
+
+/* Portal Content */
+.portal-content {
+  padding: 2rem;
+}
+
+/* Section Header */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin: 0 0 0.375rem 0;
+}
+
+.section-header p {
+  color: var(--gray-500);
+  margin: 0;
+}
+
+/* Stats */
+.stats {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.stat {
+  background-color: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  padding: 1rem;
+  min-width: 100px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background-color: var(--gray-50);
+  border-radius: 12px;
+  border: 1px dashed var(--gray-300);
+  text-align: center;
+}
+
+.empty-state svg {
+  color: var(--gray-400);
+  margin-bottom: 1.5rem;
+}
+
+.empty-state h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin: 0 0 0.5rem 0;
+}
+
+.empty-state p {
+  color: var(--gray-500);
+  margin: 0;
+  max-width: 400px;
+}
+
+/* Resume List */
+.resume-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Resume Card */
+.resume-card {
+  background-color: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.resume-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.resume-header {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem;
+  cursor: pointer;
+  background-color: var(--white);
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.2s ease;
+}
+
+.resume-card.expanded .resume-header {
+  border-bottom-color: var(--gray-200);
+}
+
+.resume-header:hover {
+  background-color: var(--gray-50);
+}
+
+.resume-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  border-radius: 8px;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.resume-title {
+  flex: 1;
+}
+
+.resume-title h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin: 0 0 0.375rem 0;
+}
+
+.resume-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.token-id {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  background-color: var(--gray-100);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.verified-badge.employer {
+  background-color: var(--success-light);
+  color: var(--success);
+}
+
+.verified-badge.institution {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.expand-icon {
+  color: var(--gray-400);
+  transition: transform 0.3s ease;
+}
+
+.expand-icon.rotated {
+  transform: rotate(180deg);
 }
 
 /* Resume Details */
 .resume-details {
-  margin-bottom: 1rem;
-  line-height: 1.6;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  padding: 0 1.25rem;
 }
 
-.resume-details strong {
-  color: #34495e;
+.resume-card.expanded .resume-details {
+  max-height: 1000px;
+  padding-bottom: 1.25rem;
 }
 
-.resume-details a {
-  color: #3498db;
+.detail-section,
+.verification-section {
+  margin-top: 1.25rem;
+}
+
+.verification-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.detail-section h4,
+.verification-section h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  margin: 0 0 0.75rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.detail-row {
+  display: flex;
+  margin-bottom: 0.75rem;
+}
+
+.detail-label {
+  flex: 0 0 120px;
+  font-size: 0.875rem;
+  color: var(--gray-500);
+}
+
+.detail-value {
+  flex: 1;
+  font-size: 0.875rem;
+  color: var(--gray-800);
+}
+
+.resume-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--primary);
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
-.resume-details a:hover {
+.resume-link:hover {
+  color: var(--primary-dark);
   text-decoration: underline;
 }
 
-/* Buttons */
-.employer-portal button {
-  background-color: #ff4d4d;
-  color: white;
+/* Verification Status */
+.verification-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+}
+
+.verification-status.verified {
+  background-color: var(--success-light);
+  color: var(--success);
+}
+
+.verification-status.pending {
+  background-color: var(--warning-light);
+  color: var(--warning);
+}
+
+.verify-button,
+.request-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem;
   border: none;
   border-radius: 8px;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.2s ease;
+  transition: all 0.2s ease;
 }
 
-.employer-portal button:hover {
-  background-color: #ff4d4d;
-  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.4);
+.verify-button {
+  background-color: var(--success-light);
+  color: var(--success);
 }
 
-.employer-portal button:disabled {
-  background-color: #cccccc;
+.verify-button:hover {
+  background-color: var(--success);
+  color: var(--white);
+}
+
+.request-button {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.request-button:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.request-button:disabled {
+  background-color: var(--gray-200);
+  color: var(--gray-500);
   cursor: not-allowed;
 }
 
-/* Status Badges */
-.status-badge {
-  display: inline-block;
-  padding: 0.4rem 0.8rem;
+/* Request Form */
+.request-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.select-container {
+  position: relative;
+}
+
+.select-container select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--gray-300);
   border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: bold;
+  background-color: var(--white);
+  font-size: 0.875rem;
+  color: var(--gray-800);
+  appearance: none;
+  cursor: pointer;
 }
 
-.status-badge.verified {
-  background-color: #28a745;
-  color: white;
+.select-container select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
 }
 
-.status-badge.pending {
-  background-color: #ffc107;
-  color: #333;
+.select-icon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-500);
+  pointer-events: none;
 }
 
-.status-badge.unverified {
-  background-color: #dc3545;
-  color: white;
+/* Notifications */
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--white);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  z-index: 9999;
+  transform: translateY(0);
+  animation: slideIn 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.notification.success {
+  background-color: var(--success-light);
+  color: var(--success);
+  border-left: 4px solid var(--success);
+}
+
+.notification.error {
+  background-color: var(--danger-light);
+  color: var(--danger);
+  border-left: 4px solid var(--danger);
+}
+
+.notification.hide {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .employer-portal {
+  .portal-wrapper {
     padding: 1rem;
   }
 
-  .employer-portal h2 {
-    font-size: 1.8rem;
+  .employer-portal {
+    border-radius: 8px;
   }
 
-  .employer-portal h3 {
-    font-size: 1.3rem;
+  .portal-header {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  .employer-portal button {
+  .portal-header .logout-button {
+    align-self: flex-end;
+  }
+
+  .portal-content {
+    padding: 1rem;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stats {
     width: 100%;
-    text-align: center;
-    margin-top: 0.5rem;
+    justify-content: space-between;
+  }
+
+  .verification-section {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-header {
+    padding: 1rem;
+  }
+
+  .resume-icon {
+    width: 36px;
+    height: 36px;
   }
 }
