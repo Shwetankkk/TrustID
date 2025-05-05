@@ -32,7 +32,7 @@ TrustID is a decentralized application (DApp) built to revolutionize how digital
 ## 🧾 Project Structure
 
 ```
-DigitalIdentityVerification_DApp/
+TrustId/
 ├── contracts/               # Solidity contracts
 ├── migrations/              # Truffle deployment scripts
 ├── frontend/                # React app
