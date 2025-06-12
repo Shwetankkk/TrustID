@@ -130,5 +130,5 @@ This project is licensed under the **MIT License**.
 
 ## 🙋‍♂️ Author
 
-**Shwetank Singh**  | **Uday Biradar**
+**Shwetank Singh** 
 📫 [GitHub Profile](https://github.com/Shwetankkk)
